@@ -24,6 +24,15 @@ exports.config = {
       joinTo: {
         "css/vendor.css": /^node_modules/,
         "css/app.css": /^(web\/static\/css)/
+      },
+      order: {
+        before: [
+          "node_modules/basscss/css/basscss.min.css",
+          "node_modules/basscss-btn/css/btn.css",
+          "node_modules/basscss-btn-primary/css/btn-primary.css",
+          "node_modules/basscss-colors/css/colors.css",
+          "node_modules/basscss-background-colors/css/background-colors.css"
+        ]
       }
     },
     templates: {
@@ -72,11 +81,19 @@ exports.config = {
       "phoenix",
       "phoenix_html",
       "basscss",
+      "basscss-background-colors",
+      "basscss-btn",
+      "basscss-btn-primary",
+      "basscss-colors",
       "onmount",
       "blissfuljs"
     ],
     styles: {
-      basscss: ["css/basscss.min.css"]
+      "basscss": ["css/basscss.min.css"],
+      "basscss-background-colors": ["css/background-colors.css"],
+      "basscss-btn": ["css/btn.css"],
+      "basscss-btn-primary": ["css/btn-primary.css"],
+      "basscss-colors": ["css/colors.css"]
     }
   }
 };

@@ -1,14 +1,3 @@
-<h1 class="mb0">Formic</h1>
 <p class="mt0">Create and manage forms</p>
-<form role="create-form" action="/" method="post">
-  <p><label class="col-12">
-    <span>Form name</span>
-    <input type="text" name="form_name" placeholder="Lunch orders">
-  </label></p>
-  <div role="form-fields"></div>
-  <p><a href="#" role="add-field">
-    <small>Add another field&hellip;</small>
-  </a></p>
-  <p><button type="submit">Create</button></p>
-</form>
-
+<a class="btn btn-primary"
+  href="<%= form_path @conn, :new %>">Create a form</a>

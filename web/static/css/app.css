@@ -1,5 +1,8 @@
 * {
   box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -8,16 +11,16 @@ body {
 }
 
 a {
-  color: dodgerblue;
+  color: #0074d9;
   text-decoration: none;
 }
 
-input, select, button {
+input, select {
   font: inherit;
   color: inherit;
 }
 
-input, button {
+input {
   border: none;
 }
 
@@ -40,8 +43,3 @@ label span {
   font-size: small;
 }
 
-button {
-  background: dodgerblue;
-  color: white;
-  padding: .25em .5em;
-}
