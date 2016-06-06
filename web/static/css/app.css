@@ -35,7 +35,7 @@ label {
   padding: 1.5em .5em .5em;
 }
 
-label span {
+label > span {
   position: absolute;
   left: .5em;
   top: .25em;
