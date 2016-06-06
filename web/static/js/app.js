@@ -1,21 +1,35 @@
-// Brunch automatically concatenates all files in your
-// watched paths. Those paths can be configured at
-// config.paths.watched in "brunch-config.js".
-//
-// However, those files will only be executed if
-// explicitly imported. The only exception are files
-// in vendor, which are never wrapped in imports and
-// therefore are always executed.
+import 'phoenix_html'
+import 'blissfuljs'
+import onmount from 'onmount'
 
-// Import dependencies
-//
-// If you no longer want to use a dependency, remember
-// to also remove its path from "config.paths.watched".
-import "phoenix_html"
+function createField() {
+  return {tag: 'p', className: 'flex', contents: [
+    {tag: 'label', className: 'flex-auto mr2', contents: [
+      {tag: 'span', textContent: 'Field name'},
+      {tag: 'input', name: 'field_name[]', placeholder: 'Meal'},
+    ]},
+    {tag: 'label', className: 'flex-auto', contents: [
+      {tag: 'span', textContent: 'Field type'},
+      {tag: 'select', name: 'field_type[]', contents: [
+        {tag: 'option', value: 'input', textContent: 'Input'},
+        {tag: 'option', value: 'textarea', textContent: 'Textarea'},
+        {tag: 'option', value: 'radio', textContent: 'Radio'},
+        {tag: 'option', value: 'select', textContent: 'Select'},
+        {tag: 'option', value: 'checkbox', textContent: 'Checkbox'},
+      ]},
+    ]},
+  ]}
+}
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
-
-// import socket from "./socket"
+document.addEventListener('DOMContentLoaded', function () {
+  onmount('[role=create-form]', function () {
+    const formFields = $('[role=form-fields]', this)
+    const addField = (e) => {
+      e && e.preventDefault()
+      formFields._.contents([createField()])
+    }
+    $('[role=add-field]', this)._.events({click: addField})
+    addField()
+  })
+  onmount()
+})
