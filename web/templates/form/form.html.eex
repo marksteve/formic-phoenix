@@ -11,7 +11,20 @@
     </span>
     <%= text_input f, :name, placeholder: "Lunch orders" %>
   </label></p>
-  <div role="form-fields"></div>
+  <div role="form-fields">
+  <%= inputs_for f, :fields, fn field -> %>
+  <p class="flex">
+    <label class="flex-auto mr2">
+      <span>Field type</span>
+      <%= field_value field, :name %>
+    </label>
+    <label class="col-4">
+      <span>Field type</span>
+      <%= field_value field, :type %>
+    </label>
+  </p>
+  <% end %>
+  </div>
   <p><a href="#" role="add-field">
     <small>Add another field&hellip;</small>
   </a></p>

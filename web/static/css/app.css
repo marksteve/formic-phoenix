@@ -15,17 +15,15 @@ a {
   text-decoration: none;
 }
 
-input, select {
+input:not([type=submit]),
+select {
   font: inherit;
   color: inherit;
-}
-
-input {
-  border: none;
-}
-
-input, select {
   width: 100%;
+}
+
+input:not([type=submit]) {
+  border: none;
 }
 
 label {

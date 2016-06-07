@@ -1,8 +1,10 @@
 <h2>Create a form</h2>
 
-<%= render "form.html", changeset: @changeset,
-                        action: form_path(@conn, :create) %>
+<%= render "form.html",
+  changeset: @changeset,
+  action: form_path(@conn, :create) %>
 
 <small>
-  <%= link "Back", to: form_path(@conn, :index) %>
+  <%= link "Back to your forms",
+    to: form_path(@conn, :index) %>
 </small>

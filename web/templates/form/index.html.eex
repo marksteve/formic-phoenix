@@ -1,26 +1,23 @@
-<h2>Listing forms</h2>
+<h2>Your forms</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="flex flex-wrap">
 <%= for form <- @forms do %>
-    <tr>
-      <td><%= form.name %></td>
-
-      <td class="text-right">
-        <%= link "Show", to: form_path(@conn, :show, form), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: form_path(@conn, :edit, form), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: form_path(@conn, :delete, form), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
-      </td>
-    </tr>
+  <div class="col-8 mb2">
+    <%= link form.name,
+      to: form_path(@conn, :show, form) %>
+  </div>
+  <div class="col-4 flex">
+    <%= link "Edit",
+      to: form_path(@conn, :edit, form),
+      class: "btn" %>
+    <%= link "Delete",
+      to: form_path(@conn, :delete, form),
+      method: :delete, data: [confirm: "Are you sure?"],
+      class: "btn bg-red white" %>
+  </div>
 <% end %>
-  </tbody>
-</table>
+</div>
 
-<%= link "New form", to: form_path(@conn, :new) %>
+<%= link "Create a form",
+  to: form_path(@conn, :new),
+  class: "btn btn-primary" %>

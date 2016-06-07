@@ -1,13 +1,17 @@
 <h2>Show form</h2>
 
-<ul>
+<dl>
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @form.name %></dd>
+</dl>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @form.name %>
-  </li>
+<p>
+  <%= link "Edit",
+    to: form_path(@conn, :edit, @form),
+    class: "btn btn-primary" %>
+</p>
 
-</ul>
-
-<%= link "Edit", to: form_path(@conn, :edit, @form) %>
-<%= link "Back", to: form_path(@conn, :index) %>
+<small>
+  <%= link "Back to your forms",
+    to: form_path(@conn, :index) %>
+</small>
