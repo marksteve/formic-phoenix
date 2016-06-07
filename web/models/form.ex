@@ -20,7 +20,7 @@ defmodule Formic.Form do
 
   schema "forms" do
     field :name
-    embeds_many :fields, Formic.Field
+    embeds_many :fields, Formic.Field, [on_replace: :delete]
     timestamps
   end
 
