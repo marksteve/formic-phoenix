@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
   <body>
-    <div class="max-width-2 mx-auto">
+    <div class="px3">
       <%= get_flash(@conn, :info) %>
       <%= get_flash(@conn, :error) %>
       <main role="main">

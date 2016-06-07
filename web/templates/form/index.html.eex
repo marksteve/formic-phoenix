@@ -1,6 +1,6 @@
 <h2>Your forms</h2>
 
-<div class="flex flex-wrap">
+<div class="col-6 flex flex-wrap">
 <%= for form <- @forms do %>
   <div class="col-8 mb2">
     <%= link form.name,

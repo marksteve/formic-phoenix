@@ -1,8 +1,10 @@
 <h2>Edit form</h2>
 
-<%= render "form.html",
-  changeset: @changeset,
-  action: form_path(@conn, :update, @form) %>
+<div class="col-6">
+  <%= render "form.html",
+    changeset: @changeset,
+    action: form_path(@conn, :update, @form) %>
+</div>
 
 <small>
   <%= link "Back to your forms",
