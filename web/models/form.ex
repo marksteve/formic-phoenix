@@ -19,6 +19,7 @@ defmodule Formic.Form do
   use Formic.Web, :model
 
   schema "forms" do
+    field :uuid, Ecto.UUID, [autogenerate: true]
     field :name
     embeds_many :fields, Formic.Field, [on_replace: :delete]
     timestamps

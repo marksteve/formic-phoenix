@@ -1,18 +1,19 @@
-<h2>Show form</h2>
+<h2 class="mb0"><%= @form.name %></h2>
+<p class="mt0"><small>UUID: <%= @form.uuid %></small></p>
 
-<dl>
-  <dt><strong>Name:</strong></dt>
-  <dd><%= @form.name %></dd>
-  <dt><strong>Fields:</strong></dt>
-  <dd>
-    <dl class="m0">
+<table cellpadding="0" cellspacing="0" class="col-12">
+  <thead class="bg-silver">
+    <tr>
     <%= for field <- @form.fields do %>
-      <dt><%= field.name %></dt>
-      <dd><%= field.type %></dd>
+      <th class="left-align px2 py1">
+        <%= field.name %>
+      </th>
     <% end %>
-    </dl>
-  </dl>
-</dl>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 
 <p>
   <%= link "Edit",
@@ -24,3 +25,4 @@
   <%= link "Back to your forms",
     to: form_path(@conn, :index) %>
 </small>
+
