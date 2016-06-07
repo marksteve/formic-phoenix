@@ -9,18 +9,18 @@
       Form name
       <%= error_tag f, :name %>
     </span>
-    <%= text_input f, :name, placeholder: "Lunch orders" %>
+    <%= text_input f, :name, placeholder: "e.g. Newsletter Signup" %>
   </label></p>
   <div role="form-fields">
   <%= inputs_for f, :fields, fn field -> %>
   <p class="flex">
     <label class="flex-auto mr2">
       <span>Field type</span>
-      <%= field_value field, :name %>
+      <%= text_input field, :name, [readonly: true]%>
     </label>
     <label class="col-4">
       <span>Field type</span>
-      <%= field_value field, :type %>
+      <%= text_input field, :type, [readonly: true] %>
     </label>
   </p>
   <% end %>

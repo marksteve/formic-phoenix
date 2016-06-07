@@ -6,7 +6,7 @@ function createField(i) {
   return {tag: 'p', className: 'flex', contents: [
     {tag: 'label', className: 'flex-auto mr2', contents: [
       {tag: 'span', textContent: 'Field name'},
-      {tag: 'input', name: `form[fields][${i}][name]`, placeholder: 'Meal'},
+      {tag: 'input', name: `form[fields][${i}][name]`, placeholder: 'e.g. Name, Email, Mobile'},
     ]},
     {tag: 'label', className: 'col-4', contents: [
       {tag: 'span', textContent: 'Field type'},
@@ -23,12 +23,10 @@ function createField(i) {
 
 document.addEventListener('DOMContentLoaded', function () {
   onmount('[role=create-form]', function () {
-    let i = 0
     const formFields = $('[role=form-fields]', this)
     const addField = (e) => {
       e && e.preventDefault()
-      formFields._.contents([createField(i)])
-      i++
+      formFields._.contents([createField(formFields.children.length)])
     }
     $('[role=add-field]', this)._.events({click: addField})
     if (!formFields.children.length) {
