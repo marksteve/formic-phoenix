@@ -26,7 +26,7 @@ defmodule Formic.Form do
   end
 
   @required_fields ~w(name)
-  @optional_fields ~w(fields)
+  @optional_fields ~w()
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -37,5 +37,6 @@ defmodule Formic.Form do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> cast_embed(:fields)
   end
 end
