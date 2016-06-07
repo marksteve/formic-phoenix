@@ -12,8 +12,17 @@
   </head>
   <body>
     <div class="px3">
-      <%= get_flash(@conn, :info) %>
-      <%= get_flash(@conn, :error) %>
+      <%= case get_flash(@conn) do %>
+        <%= %{"info" => msg} -> %>
+        <div class="bg-aqua px2 py1 m3 fixed right-0 bottom-0">
+          <%= msg %>
+        </div>
+        <%= %{"error" => msg} -> %>
+        <div class="bg-red px2 py1 m3 fixed right-0 bottom-0">
+          <%= msg %>
+        </div>
+        <%= _ -> %>
+      <% end %>
       <main role="main">
         <h1 class="mb0"><a href="<%= page_path @conn, :index %>">Formic</a></h1>
         <%= render @view_module, @view_template, assigns %>
