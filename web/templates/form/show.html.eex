@@ -3,6 +3,15 @@
 <dl>
   <dt><strong>Name:</strong></dt>
   <dd><%= @form.name %></dd>
+  <dt><strong>Fields:</strong></dt>
+  <dd>
+    <dl class="m0">
+    <%= for field <- @form.fields do %>
+      <dt><%= field.name %></dt>
+      <dd><%= field.type %></dd>
+    <% end %>
+    </dl>
+  </dl>
 </dl>
 
 <p>
